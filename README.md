@@ -3,7 +3,7 @@ Your shell script automates the creation of an Amazon EC2 instance using the AWS
 # How to Automate EC2 Instance Creation with a Shell Script and AWS CLI
 I’ll guide you through automating the creation of an EC2 instance on AWS using a bash script. We will break down the entire process of checking for AWS CLI installation, installing it if necessary, and launching an EC2 instance with specific configurations.
 
-#1. Overview of the Script
+# 1. Overview of the Script
 The script is structured into various functions to simplify the process:
 
 1. Check if AWS CLI is installed.
@@ -13,7 +13,7 @@ The script is structured into various functions to simplify the process:
 
 Let’s walk through each section to understand how the script works.
 
-#2. Enabling Error Handling
+# 2. Enabling Error Handling
 The script starts with:
 
 set -euo pipefail
@@ -24,7 +24,7 @@ set -euo pipefail
 
 This combination helps detect errors early, ensuring the script doesn’t proceed if something goes wrong.
 
-#3. Checking if AWS CLI is Installed
+# 3. Checking if AWS CLI is Installed
 The check_awscli function checks whether the AWS CLI is installed on the system.
 
 check_awscli() {
@@ -43,7 +43,7 @@ command -v aws: Looks for the 'aws' command to determine if AWS CLI is installed
 
 If the CLI isn’t found, the script will print a message to 'stderr' and return '1', which signifies an error.
 
-#4. Installing AWS CLI
+# 4. Installing AWS CLI
 If the AWS CLI is not installed, the script runs the 'install_awscli' function to install it.
 
 install_awscli() {
@@ -71,7 +71,7 @@ rm -rf awscliv2.zip ./aws
 
 After installation, temporary files are removed to keep the system clean.
 
-#5. Waiting for the EC2 Instance to Start
+# 5. Waiting for the EC2 Instance to Start
 After launching the EC2 instance, the 'wait_for_instance' function ensures that the instance reaches the "running" state before proceeding.
 
 wait_for_instance() {
@@ -103,7 +103,7 @@ done
 3. sleep 10: Waits for 10 seconds before checking again to avoid excessive requests.
 4. This loop continues until the instance reaches the "running" state.
 
-#6. Creating the EC2 Instance
+# 6. Creating the EC2 Instance
 The 'create_ec2_instance' function uses the AWS CLI to launch an EC2 instance.
 
 create_ec2_instance() {
